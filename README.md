@@ -4,23 +4,35 @@
   
 # import required modules 
 import requests
+api_key = '95e4dc032e7491ccec0c31ccc6830298'
 
-zip_code = input("Enter your zip code: ")
+whereuserresides = input("Enter your zip code or city: ")
 
-url = 'http://api.openweathermap.org/data/2.5/weather?zip={},us&appid=95e4dc032e7491ccec0c31ccc6830298'.format(zip_code)
+try:
+  url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=95e4dc032e7491ccec0c31ccc6830298'.format(whereuserresides)
+  
+except TypeError:
+  int(whereuserresides)
+  url = 'http://api.openweathermap.org/data/2.5/weather?zip={},us&appid=95e4dc032e7491ccec0c31ccc6830298'.format(whereuserresides)
+  
+
+
+
+
+
   
 # get method of requests module 
 # return response object 
 response = requests.get(url) 
 
-data = response.json()
+x = response.json() 
 
-temp = data['main']['temp']
+temp = x['main']['temp']
   
 # json method of response object  
 # convert json format data into 
 # python format data 
-x = response.json() 
+
   
 # Now x contains list of nested dictionaries 
 # Check the value of "cod" key is equal to 
