@@ -40,7 +40,7 @@ temp = x['main']['temp']
 # city is not found 
 if x["cod"] != "404": 
   
-  print(temp)
+  print("The current temperature is " + str(temp) + " degrees Fahrenheit")
   
    
 
