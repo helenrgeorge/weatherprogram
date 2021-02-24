@@ -25,13 +25,11 @@ except TypeError:
 # return response object 
 response = requests.get(url) 
 
-x = response.json() 
-
-temp = x['main']['temp']
-  
 # json method of response object  
 # convert json format data into 
 # python format data 
+
+x = response.json() 
 
   
 # Now x contains list of nested dictionaries 
@@ -39,6 +37,10 @@ temp = x['main']['temp']
 # "404", means city is found otherwise, 
 # city is not found 
 if x["cod"] != "404": 
+
+  temp = x['main']['temp']
+
+  
   
   print("The current temperature is " + str(temp) + " degrees Fahrenheit")
   
